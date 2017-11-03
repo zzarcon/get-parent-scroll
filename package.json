@@ -1,5 +1,6 @@
 {
   "name": "react-parent-scroll-provider",
+  "description": "Wraps Components with his closest parent scroll container",
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
