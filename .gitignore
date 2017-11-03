@@ -58,3 +58,5 @@ typings/
 .env
 
 dist
+example/index.js
+example/index.js.map
