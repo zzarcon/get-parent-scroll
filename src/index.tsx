@@ -1,27 +1,28 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {Component} from 'react';
+import {Component, ReactNode, ReactElement} from 'react';
 import getParentScroll from './getParentScroll';
 
 export interface ParentScrollProviderProps {
-  placeholder?: Element;
+  placeholder?: JSX.Element;
   forceRender?: boolean;
-  children: any; //TODO: improve definition
+  children?: ReactNode; //TODO: improve definition
 }
 
 export interface ParentScrollProviderState {
-  parentScroll?: HTMLElement;
+  parentScroll?: Element;
 }
 
 const defaultPlaceholder = <div />;
 
 class ParentScrollProvider extends Component<ParentScrollProviderProps, ParentScrollProviderState> {
-  state = {
-    
+  state: ParentScrollProviderState = {
+    parentScroll: undefined
   }
+
   componentDidMount() {
     const node = ReactDOM.findDOMNode(this);
-    const parentScroll = getParentScroll(node as HTMLElement);
+    const parentScroll = getParentScroll(node);
 
     this.setState({parentScroll});
   }
@@ -30,7 +31,7 @@ class ParentScrollProvider extends Component<ParentScrollProviderProps, ParentSc
     const {children} = this.props;
     const {parentScroll} = this.state;
 
-    return React.cloneElement(children, {
+    return React.cloneElement(children as ReactElement<any>, {
       parentScroll
     });
   }

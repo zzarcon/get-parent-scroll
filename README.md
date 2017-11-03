@@ -1,8 +1,13 @@
 # react-parent-scroll-provider
-> get hyped
+> Wraps Components with his closest parent scroll container
+
+### Installation
+
+```
+$ yarn add react-parent-scroll-provider
+```
 
 ### Usage
-
 
 ```js
 import {Component} from 'react';
@@ -20,10 +25,9 @@ class MyComponent extends Component {
   }
 
   render() {
-
+    return <div />;
   }
 }
-
 
 class App extends Component {
   render() {
@@ -40,3 +44,9 @@ class App extends Component {
 }
 
 ```
+
+
+### How does it work?
+
+- Defaults to document.body
+- Won't render children component until **parentScroll** is found
