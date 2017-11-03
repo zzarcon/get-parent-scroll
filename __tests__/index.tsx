@@ -30,7 +30,7 @@ describe('ParentScrollProvider', () => {
     );
   });
 
-  it.only('should pass the right element as parentScroll', () => {
+  it('should pass the right element as parentScroll', () => {
     expect.assertions(1);
 
     class Dummy extends Component<any, any> {
